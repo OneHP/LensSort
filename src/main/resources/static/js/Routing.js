@@ -9,6 +9,10 @@ angular.module('lenssort').config(['$routeProvider',
           templateUrl: 'partials/LoginCallback.html',
           controller: 'LoginCallbackController'
         }).
+        when('/login-error', {
+          templateUrl: 'partials/LoginError.html',
+          controller: 'LoginErrorController'
+        }).
         otherwise({
           redirectTo: '/login'
         });
