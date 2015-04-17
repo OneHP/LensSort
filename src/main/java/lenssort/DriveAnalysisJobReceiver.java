@@ -10,6 +10,7 @@ import com.google.api.services.drive.model.File;
 import com.google.api.services.drive.model.FileList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.annotation.JmsListener;
+import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -17,6 +18,9 @@ public class DriveAnalysisJobReceiver {
 
     @Autowired
     private DataStore<StoredCredential> credentialDataStore;
+
+    @Autowired
+    private PhotoRepository photoRepository;
 
     @JmsListener(destination = Constants.DRIVE_ANALYSIS_TRIGGER_QUEUE)
     public void receive(String message) throws Exception{
@@ -27,9 +31,9 @@ public class DriveAnalysisJobReceiver {
 
         Drive drive = new Drive.Builder(new NetHttpTransport(),new JacksonFactory(),googleCredential).build();
 
-        FileList fileList = drive.files().list().setQ("mimeType = 'image/jpeg' and trashed = false").setMaxResults(100).execute();
+        FileList fileList = drive.files().list().setQ("mimeType = 'image/jpeg' and trashed = false").setMaxResults(200).execute();
 
-        fileList.getItems().forEach((File file) -> System.out.println(file.getTitle()));
+        fileList.getItems().forEach((File file) -> photoRepository.save(Photo.fromFile(file)));
 
     }
 }
