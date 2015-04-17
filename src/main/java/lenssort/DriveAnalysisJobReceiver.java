@@ -8,10 +8,13 @@ import com.google.api.client.util.store.DataStore;
 import com.google.api.services.drive.Drive;
 import com.google.api.services.drive.model.File;
 import com.google.api.services.drive.model.FileList;
+import javafx.util.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Component
 public class DriveAnalysisJobReceiver {
@@ -34,6 +37,9 @@ public class DriveAnalysisJobReceiver {
         FileList fileList = drive.files().list().setQ("mimeType = 'image/jpeg' and trashed = false").setMaxResults(200).execute();
 
         fileList.getItems().forEach((File file) -> photoRepository.save(Photo.fromFile(file)));
+
+        photoRepository.getApertureCounts().forEach((Pair<Float, Integer> pair) ->
+                System.out.println(pair.getKey() + ": " + pair.getValue()));
 
     }
 }
