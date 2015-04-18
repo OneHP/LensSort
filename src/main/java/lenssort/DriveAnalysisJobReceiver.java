@@ -35,26 +35,5 @@ public class DriveAnalysisJobReceiver {
 
         fileList.getItems().forEach((File file) -> photoRepository.save(Photo.fromFile(file)));
 
-        photoRepository.getApertureCounts().forEach((Pair<Float, Integer> pair) ->
-                System.out.println(pair.getKey() + ": " + pair.getValue()));
-
-        photoRepository.getCameraMakeCounts().forEach((Pair<String, Integer> pair) ->
-                System.out.println(pair.getKey() + ": " + pair.getValue()));
-
-        photoRepository.getCameraModelCounts().forEach((Pair<String, Integer> pair) ->
-                System.out.println(pair.getKey() + ": " + pair.getValue()));
-
-        photoRepository.getExposureTimeCounts().forEach((Pair<Float, Integer> pair) ->
-                System.out.println(pair.getKey() + ": " + pair.getValue()));
-
-        photoRepository.getFocalLengthCounts().forEach((Pair<Float, Integer> pair) ->
-                System.out.println(pair.getKey() + ": " + pair.getValue()));
-
-        photoRepository.getIsoSpeedCounts().forEach((Pair<Integer, Integer> pair) ->
-                System.out.println(pair.getKey() + ": " + pair.getValue()));
-
-        photoRepository.getLensCounts().forEach((Pair<String, Integer> pair) ->
-                System.out.println(pair.getKey() + ": " + pair.getValue()));
-
     }
 }
