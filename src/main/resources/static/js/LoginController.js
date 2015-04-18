@@ -1,5 +1,5 @@
 angular.module('controllers')
-    .controller('LoginController',function($scope, $window){
+    .controller('LoginController',['$scope','$window',function($scope, $window){
 
         $scope.login = function(){
             $window.location.href = "https://accounts.google.com/o/oauth2/auth?"+
@@ -9,4 +9,4 @@ angular.module('controllers')
                                       "client_id=714176515768-mqf76v7i6ju0ob1t02aoki299g4htus7.apps.googleusercontent.com&"+
                                       "approval_prompt=force";
         }
-    });
+    }]);

@@ -1,4 +1,4 @@
 angular.module('controllers')
-    .controller('LoginErrorController',function($scope, $location){
+    .controller('LoginErrorController',['$scope','$location',function($scope, $location){
 
-    });
+    }]);

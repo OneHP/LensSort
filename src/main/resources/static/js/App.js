@@ -1,2 +1,3 @@
-angular.module('controllers',[])
-angular.module('lenssort',['ngRoute','controllers'])
+angular.module('services',[])
+angular.module('controllers',['services'])
+angular.module('lenssort',['ngRoute','services','controllers'])
