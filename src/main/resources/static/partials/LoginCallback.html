@@ -6,7 +6,83 @@
     </div>
     <div class="row">
         <div class="col-xs-3">
-            {{driveAnalysisModel.metadataCounts}}
+            <div class="row">
+                <div class="col-xs-12">
+                    <h4>Camera Make</h4>
+                </div>
+            </div>
+            <div class="row" ng-repeat="cameraMake in driveAnalysisModel.metadataCounts.cameraMakeCounts">
+                <div class="col-xs-12">
+                    {{cameraMake.key}} ({{cameraMake.value}})
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <h4>Camera Model</h4>
+                </div>
+            </div>
+            <div class="row" ng-repeat="cameraModel in driveAnalysisModel.metadataCounts.cameraModelCounts">
+                <div class="col-xs-12">
+                    {{cameraModel.key}} ({{cameraModel.value}})
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <h4>Lens</h4>
+                </div>
+            </div>
+            <div class="row" ng-repeat="lens in driveAnalysisModel.metadataCounts.lensCounts">
+                <div class="col-xs-12">
+                    {{lens.key}} ({{lens.value}})
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <h4>Aperture</h4>
+                </div>
+            </div>
+            <div class="row" ng-repeat="aperture in driveAnalysisModel.metadataCounts.apertureCounts">
+                <div class="col-xs-12">
+                    {{aperture.key}} ({{aperture.value}})
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <h4>Focal Length</h4>
+                </div>
+            </div>
+            <div class="row" ng-repeat="focalLength in driveAnalysisModel.metadataCounts.focalLengthCounts">
+                <div class="col-xs-12">
+                    {{focalLength.key}} ({{focalLength.value}})
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <h4>ISO Speed</h4>
+                </div>
+            </div>
+            <div class="row" ng-repeat="isoSpeed in driveAnalysisModel.metadataCounts.isoSpeedCounts">
+                <div class="col-xs-12">
+                    {{isoSpeed.key}} ({{isoSpeed.value}})
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <h4>Exposure Time</h4>
+                </div>
+            </div>
+            <div class="row" ng-repeat="exposureTime in driveAnalysisModel.metadataCounts.exposureTimeCounts">
+                <div class="col-xs-12">
+                    {{exposureTime.key}} ({{exposureTime.value}})
+                </div>
+            </div>
+
         </div>
         <div class="col-xs-9">
 

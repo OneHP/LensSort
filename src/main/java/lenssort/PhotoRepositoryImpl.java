@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public class PhotoRepositoryImpl implements PhotoRepositoryCustom {
 
-    private final String COUNT_QUERY = "SELECT %s, COUNT(%s) from Photo GROUP BY %s";
+    private final String COUNT_QUERY = "SELECT %s, COUNT(*) from Photo GROUP BY %s";
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
