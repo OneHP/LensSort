@@ -1,5 +1,6 @@
 package lenssort;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.google.api.services.drive.model.File;
 
 import javax.persistence.Column;
@@ -7,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 
+@JsonAutoDetect
 @Entity(name="photo")
 public class Photo {
 

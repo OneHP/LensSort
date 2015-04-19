@@ -106,7 +106,11 @@
 
         </div>
         <div class="col-xs-9">
-            
+            <div class="row" ng-repeat="photo in driveAnalysisModel.photos">
+                <div class="col-xs-12">
+                    {{photo.title}}
+                </div>
+            </div>
         </div>
     </div>
 

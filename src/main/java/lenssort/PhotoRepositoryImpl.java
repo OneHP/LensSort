@@ -3,6 +3,7 @@ package lenssort;
 import javafx.util.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
@@ -65,4 +66,5 @@ public class PhotoRepositoryImpl implements PhotoRepositoryCustom {
     public List<Pair<String, Integer>> getLensCounts() {
         return queryCountsForStringField("lens");
     }
+
 }
