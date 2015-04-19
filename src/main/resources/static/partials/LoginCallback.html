@@ -8,84 +8,105 @@
         <div class="col-xs-3">
             <div class="row">
                 <div class="col-xs-12">
-                    <h4>Camera Make</h4>
+                    <h3>Camera Make</h3>
                 </div>
             </div>
             <div class="row" ng-repeat="cameraMake in driveAnalysisModel.metadataCounts.cameraMakeCounts">
                 <div class="col-xs-12">
-                    {{cameraMake.key}} ({{cameraMake.value}})
+                    <label>
+                        <input type="checkbox" checklist-model="filterModel.cameraMake"
+                               checklist-value="cameraMake.key"> {{cameraMake.key}} ({{cameraMake.value}})
+                    </label>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-xs-12">
-                    <h4>Camera Model</h4>
+                    <h3>Camera Model</h3>
                 </div>
             </div>
             <div class="row" ng-repeat="cameraModel in driveAnalysisModel.metadataCounts.cameraModelCounts">
                 <div class="col-xs-12">
-                    {{cameraModel.key}} ({{cameraModel.value}})
+                    <label>
+                        <input type="checkbox" checklist-model="filterModel.cameraModel"
+                               checklist-value="cameraModel.key"> {{cameraModel.key}} ({{cameraModel.value}})
+                    </label>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-xs-12">
-                    <h4>Lens</h4>
+                    <h3>Lens</h3>
                 </div>
             </div>
             <div class="row" ng-repeat="lens in driveAnalysisModel.metadataCounts.lensCounts">
                 <div class="col-xs-12">
-                    {{lens.key}} ({{lens.value}})
+                    <label>
+                        <input type="checkbox" checklist-model="filterModel.lens"
+                               checklist-value="lens.key"> {{lens.key}} ({{lens.value}})
+                    </label>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-xs-12">
-                    <h4>Aperture</h4>
+                    <h3>Aperture</h3>
                 </div>
             </div>
             <div class="row" ng-repeat="aperture in driveAnalysisModel.metadataCounts.apertureCounts">
                 <div class="col-xs-12">
-                    {{aperture.key}} ({{aperture.value}})
+                    <label>
+                        <input type="checkbox" checklist-model="filterModel.aperture"
+                               checklist-value="aperture.key"> {{aperture.key}} ({{aperture.value}})
+                    </label>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-xs-12">
-                    <h4>Focal Length</h4>
+                    <h3>Focal Length</h3>
                 </div>
             </div>
             <div class="row" ng-repeat="focalLength in driveAnalysisModel.metadataCounts.focalLengthCounts">
                 <div class="col-xs-12">
-                    {{focalLength.key}} ({{focalLength.value}})
+                    <label>
+                        <input type="checkbox" checklist-model="filterModel.focalLength"
+                               checklist-value="focalLength.key"> {{focalLength.key}} ({{focalLength.value}})
+                    </label>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-xs-12">
-                    <h4>ISO Speed</h4>
+                    <h3>ISO Speed</h3>
                 </div>
             </div>
             <div class="row" ng-repeat="isoSpeed in driveAnalysisModel.metadataCounts.isoSpeedCounts">
                 <div class="col-xs-12">
-                    {{isoSpeed.key}} ({{isoSpeed.value}})
+                    <label>
+                        <input type="checkbox" checklist-model="filterModel.isoSpeed"
+                               checklist-value="isoSpeed.key"> {{isoSpeed.key}} ({{isoSpeed.value}})
+                    </label>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-xs-12">
-                    <h4>Exposure Time</h4>
+                    <h3>Exposure Time</h3>
                 </div>
             </div>
             <div class="row" ng-repeat="exposureTime in driveAnalysisModel.metadataCounts.exposureTimeCounts">
                 <div class="col-xs-12">
-                    {{exposureTime.key}} ({{exposureTime.value}})
+                    <label>
+                        <input type="checkbox" checklist-model="filterModel.exposureTime"
+                               checklist-value="exposureTime.key"> {{exposureTime.key}} ({{exposureTime.value}})
+                    </label>
                 </div>
             </div>
 
         </div>
         <div class="col-xs-9">
-
+            
         </div>
     </div>
 
