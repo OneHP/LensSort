@@ -106,9 +106,12 @@
 
         </div>
         <div class="col-xs-9">
-            <div class="row" ng-repeat="photo in driveAnalysisModel.photos">
-                <div class="col-xs-12">
-                    {{photo.title}}
+            <div class="row">
+                <div class="col-xs-4" ng-repeat="photo in driveAnalysisModel.photos">
+                    <a href="" class="thumbnail">
+                        <img src="{{photo.thumbnailLink}}" alt="{{photo.title}}">
+                        <h4>{{photo.title}}</h4>
+                    </a>
                 </div>
             </div>
         </div>

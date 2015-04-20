@@ -18,6 +18,7 @@ public class Photo {
 
     private String driveId;
     private String title;
+    private String thumbnailLink;
     private float aperture;
     private String cameraMake;
     private String cameraModel;
@@ -45,6 +46,14 @@ public class Photo {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getThumbnailLink() {
+        return thumbnailLink;
+    }
+
+    public void setThumbnailLink(String thumbnailLink) {
+        this.thumbnailLink = thumbnailLink;
     }
 
     public float getAperture() {
@@ -117,6 +126,7 @@ public class Photo {
 
         photo.setDriveId(file.getId());
         photo.setTitle(file.getTitle());
+        photo.setThumbnailLink(file.getThumbnailLink());
 
         final File.ImageMediaMetadata metadata = file.getImageMediaMetadata();
 
