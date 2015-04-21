@@ -13,9 +13,10 @@
             </div>
             <div class="row" ng-repeat="cameraMake in driveAnalysisModel.metadataCounts.cameraMakeCounts">
                 <div class="col-xs-12">
-                    <label>
+                    <label ng-class="cameraMake.filteredCount==0 ? 'dull' : ''"}>
                         <input type="checkbox" checklist-model="filterModel.cameraMake"
-                               checklist-value="cameraMake.value"> {{cameraMake.value}} ({{cameraMake.count}})({{cameraMake.filteredCount}})
+                               checklist-value="cameraMake.value"> {{cameraMake.value}} ({{cameraMake.count}})
+                        <span ng-hide="cameraMake.count==cameraMake.filteredCount">({{cameraMake.filteredCount}})</span>
                     </label>
                 </div>
             </div>
@@ -27,9 +28,10 @@
             </div>
             <div class="row" ng-repeat="cameraModel in driveAnalysisModel.metadataCounts.cameraModelCounts">
                 <div class="col-xs-12">
-                    <label>
+                    <label ng-class="cameraModel.filteredCount==0 ? 'dull' : ''"}>
                         <input type="checkbox" checklist-model="filterModel.cameraModel"
-                               checklist-value="cameraModel.value"> {{cameraModel.value}} ({{cameraModel.count}})({{cameraModel.filteredCount}})
+                               checklist-value="cameraModel.value"> {{cameraModel.value}} ({{cameraModel.count}})
+                        <span ng-hide="cameraModel.count==cameraModel.filteredCount">({{cameraModel.filteredCount}})</span>
                     </label>
                 </div>
             </div>
@@ -41,9 +43,10 @@
             </div>
             <div class="row" ng-repeat="lens in driveAnalysisModel.metadataCounts.lensCounts">
                 <div class="col-xs-12">
-                    <label>
+                    <label ng-class="lens.filteredCount==0 ? 'dull' : ''"}>
                         <input type="checkbox" checklist-model="filterModel.lens"
-                               checklist-value="lens.value"> {{lens.value}} ({{lens.count}})({{lens.filteredCount}})
+                               checklist-value="lens.value"> {{lens.value}} ({{lens.count}})
+                        <span ng-hide="lens.count==lens.filteredCount">({{lens.filteredCount}})</span>
                     </label>
                 </div>
             </div>
@@ -55,9 +58,10 @@
             </div>
             <div class="row" ng-repeat="aperture in driveAnalysisModel.metadataCounts.apertureCounts">
                 <div class="col-xs-12">
-                    <label>
+                    <label ng-class="aperture.filteredCount==0 ? 'dull' : ''"}>
                         <input type="checkbox" checklist-model="filterModel.aperture"
-                               checklist-value="aperture.value"> {{aperture.value}} ({{aperture.count}})({{aperture.filteredCount}})
+                               checklist-value="aperture.value"> {{aperture.value}} ({{aperture.count}})
+                        <span ng-hide="aperture.count==aperture.filteredCount">({{aperture.filteredCount}})</span>
                     </label>
                 </div>
             </div>
@@ -69,9 +73,10 @@
             </div>
             <div class="row" ng-repeat="focalLength in driveAnalysisModel.metadataCounts.focalLengthCounts">
                 <div class="col-xs-12">
-                    <label>
+                    <label ng-class="focalLength.filteredCount==0 ? 'dull' : ''"}>
                         <input type="checkbox" checklist-model="filterModel.focalLength"
-                               checklist-value="focalLength.value"> {{focalLength.value}} ({{focalLength.count}})({{focalLength.filteredCount}})
+                               checklist-value="focalLength.value"> {{focalLength.value}} ({{focalLength.count}})
+                        <span ng-hide="focalLength.count==focalLength.filteredCount">({{focalLength.filteredCount}})</span>
                     </label>
                 </div>
             </div>
@@ -83,9 +88,10 @@
             </div>
             <div class="row" ng-repeat="isoSpeed in driveAnalysisModel.metadataCounts.isoSpeedCounts">
                 <div class="col-xs-12">
-                    <label>
+                    <label ng-class="isoSpeed.filteredCount==0 ? 'dull' : ''"}>
                         <input type="checkbox" checklist-model="filterModel.isoSpeed"
-                               checklist-value="isoSpeed.value"> {{isoSpeed.value}} ({{isoSpeed.count}})({{isoSpeed.filteredCount}})
+                               checklist-value="isoSpeed.value"> {{isoSpeed.value}} ({{isoSpeed.count}})
+                        <span ng-hide="isoSpeed.count==isoSpeed.filteredCount">({{isoSpeed.filteredCount}})</span>
                     </label>
                 </div>
             </div>
@@ -97,9 +103,10 @@
             </div>
             <div class="row" ng-repeat="exposureTime in driveAnalysisModel.metadataCounts.exposureTimeCounts">
                 <div class="col-xs-12">
-                    <label>
+                    <label ng-class="exposureTime.filteredCount==0 ? 'dull' : ''"}>
                         <input type="checkbox" checklist-model="filterModel.exposureTime"
-                               checklist-value="exposureTime.value"> {{exposureTime.value}} ({{exposureTime.count}})({{exposureTime.filteredCount}})
+                               checklist-value="exposureTime.value"> {{exposureTime.value}} ({{exposureTime.count}})
+                        <span ng-hide="exposureTime.count==exposureTime.filteredCount">({{exposureTime.filteredCount}})</span>
                     </label>
                 </div>
             </div>
