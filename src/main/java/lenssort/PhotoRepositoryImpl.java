@@ -10,7 +10,6 @@ import org.springframework.util.CollectionUtils;
 import java.sql.ResultSet;
 import java.util.List;
 import java.util.Map;
-import java.util.function.BiFunction;
 import java.util.function.Function;
 
 @Repository
@@ -33,7 +32,7 @@ public class PhotoRepositoryImpl implements PhotoRepositoryCustom {
         FIELD_TO_STRING_JOINER.put("aperture", PhotoRepositoryImpl::commaSeperatedValues);
         FIELD_TO_STRING_JOINER.put("camera_make", PhotoRepositoryImpl::commaSeperatedDelimitedValues);
         FIELD_TO_STRING_JOINER.put("camera_model", PhotoRepositoryImpl::commaSeperatedDelimitedValues);
-        FIELD_TO_STRING_JOINER.put("exposure_time", PhotoRepositoryImpl::commaSeperatedValues);
+        FIELD_TO_STRING_JOINER.put("exposure_time", PhotoRepositoryImpl::commaSeperatedDelimitedValues);
         FIELD_TO_STRING_JOINER.put("focal_length", PhotoRepositoryImpl::commaSeperatedValues);
         FIELD_TO_STRING_JOINER.put("iso_speed", PhotoRepositoryImpl::commaSeperatedValues);
         FIELD_TO_STRING_JOINER.put("lens", PhotoRepositoryImpl::commaSeperatedDelimitedValues);
@@ -82,11 +81,11 @@ public class PhotoRepositoryImpl implements PhotoRepositoryCustom {
     }
 
     @Override
-    public List<MetadataCount<Float>> getExposureTimeCounts(FilterRequest filterRequest) {
+    public List<MetadataCount<String>> getExposureTimeCounts(FilterRequest filterRequest) {
         StringBuilder clause = new StringBuilder("TRUE ");
         String field = "exposure_time";
         appendInClauses(clause, filterRequest, field);
-        return queryCountsForFloatField(field, clause.toString());
+        return queryCountsForStringField(field, clause.toString());
     }
 
     @Override

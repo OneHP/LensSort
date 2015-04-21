@@ -14,7 +14,7 @@ public class FilterRequest {
     private List<Float> aperture;
     private List<Float> focalLength;
     private List<Integer> isoSpeed;
-    private List<Float> exposureTime;
+    private List<String> exposureTime;
 
     public FilterRequest(){
 
@@ -68,11 +68,11 @@ public class FilterRequest {
         this.isoSpeed = isoSpeed;
     }
 
-    public List<Float> getExposureTime() {
+    public List<String> getExposureTime() {
         return exposureTime;
     }
 
-    public void setExposureTime(List<Float> exposureTime) {
+    public void setExposureTime(List<String> exposureTime) {
         this.exposureTime = exposureTime;
     }
 

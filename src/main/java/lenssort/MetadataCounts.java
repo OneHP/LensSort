@@ -10,7 +10,7 @@ public class MetadataCounts {
     private List<MetadataCount<Float>> apertureCounts;
     private List<MetadataCount<String>> cameraMakeCounts;
     private List<MetadataCount<String>> cameraModelCounts;
-    private List<MetadataCount<Float>> exposureTimeCounts;
+    private List<MetadataCount<String>> exposureTimeCounts;
     private List<MetadataCount<Float>> focalLengthCounts;
     private List<MetadataCount<Integer>> isoSpeedCounts;
     private List<MetadataCount<String>> lensCounts;
@@ -43,11 +43,11 @@ public class MetadataCounts {
         this.cameraModelCounts = cameraModelCounts;
     }
 
-    public List<MetadataCount<Float>> getExposureTimeCounts() {
+    public List<MetadataCount<String>> getExposureTimeCounts() {
         return exposureTimeCounts;
     }
 
-    public void setExposureTimeCounts(List<MetadataCount<Float>> exposureTimeCounts) {
+    public void setExposureTimeCounts(List<MetadataCount<String>> exposureTimeCounts) {
         this.exposureTimeCounts = exposureTimeCounts;
     }
 

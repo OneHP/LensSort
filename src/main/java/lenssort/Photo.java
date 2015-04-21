@@ -3,10 +3,9 @@ package lenssort;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.google.api.services.drive.model.File;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @JsonAutoDetect
 @Entity(name="photo")
@@ -22,7 +21,7 @@ public class Photo {
     private float aperture;
     private String cameraMake;
     private String cameraModel;
-    private float exposureTime;
+    private String exposureTime;
     private float focalLength;
     private int isoSpeed;
     private String lens;
@@ -80,11 +79,11 @@ public class Photo {
         this.cameraModel = cameraModel;
     }
 
-    public float getExposureTime() {
+    public String getExposureTime() {
         return exposureTime;
     }
 
-    public void setExposureTime(float exposureTime) {
+    public void setExposureTime(String exposureTime) {
         this.exposureTime = exposureTime;
     }
 
@@ -133,7 +132,7 @@ public class Photo {
         photo.setAperture(metadata.getAperture());
         photo.setCameraMake(metadata.getCameraMake());
         photo.setCameraModel(metadata.getCameraModel());
-        photo.setExposureTime(metadata.getExposureTime());
+        photo.setExposureTime("1/" + Math.round(1.0f/metadata.getExposureTime()));
         photo.setFocalLength(metadata.getFocalLength());
         photo.setIsoSpeed(metadata.getIsoSpeed());
         photo.setLens(metadata.getLens());
