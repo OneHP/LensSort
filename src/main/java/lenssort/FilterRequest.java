@@ -11,8 +11,8 @@ public class FilterRequest {
     private List<String> cameraMake;
     private List<String> cameraModel;
     private List<String> lens;
-    private List<Float> aperture;
-    private List<Float> focalLength;
+    private List<String> aperture;
+    private List<String> focalLength;
     private List<Integer> isoSpeed;
     private List<String> exposureTime;
 
@@ -44,19 +44,19 @@ public class FilterRequest {
         this.lens = lens;
     }
 
-    public List<Float> getAperture() {
+    public List<String> getAperture() {
         return aperture;
     }
 
-    public void setAperture(List<Float> aperture) {
+    public void setAperture(List<String> aperture) {
         this.aperture = aperture;
     }
 
-    public List<Float> getFocalLength() {
+    public List<String> getFocalLength() {
         return focalLength;
     }
 
-    public void setFocalLength(List<Float> focalLength) {
+    public void setFocalLength(List<String> focalLength) {
         this.focalLength = focalLength;
     }
 

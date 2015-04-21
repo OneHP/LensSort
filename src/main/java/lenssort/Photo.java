@@ -18,11 +18,11 @@ public class Photo {
     private String driveId;
     private String title;
     private String thumbnailLink;
-    private float aperture;
+    private String aperture;
     private String cameraMake;
     private String cameraModel;
     private String exposureTime;
-    private float focalLength;
+    private String focalLength;
     private int isoSpeed;
     private String lens;
     private int rotation;
@@ -55,11 +55,11 @@ public class Photo {
         this.thumbnailLink = thumbnailLink;
     }
 
-    public float getAperture() {
+    public String getAperture() {
         return aperture;
     }
 
-    public void setAperture(float aperture) {
+    public void setAperture(String aperture) {
         this.aperture = aperture;
     }
 
@@ -87,11 +87,11 @@ public class Photo {
         this.exposureTime = exposureTime;
     }
 
-    public float getFocalLength() {
+    public String getFocalLength() {
         return focalLength;
     }
 
-    public void setFocalLength(float focalLength) {
+    public void setFocalLength(String focalLength) {
         this.focalLength = focalLength;
     }
 
@@ -129,11 +129,11 @@ public class Photo {
 
         final File.ImageMediaMetadata metadata = file.getImageMediaMetadata();
 
-        photo.setAperture(metadata.getAperture());
+        photo.setAperture(metadata.getAperture().toString());
         photo.setCameraMake(metadata.getCameraMake());
         photo.setCameraModel(metadata.getCameraModel());
         photo.setExposureTime("1/" + Math.round(1.0f/metadata.getExposureTime()));
-        photo.setFocalLength(metadata.getFocalLength());
+        photo.setFocalLength(metadata.getFocalLength().toString());
         photo.setIsoSpeed(metadata.getIsoSpeed());
         photo.setLens(metadata.getLens());
         photo.setRotation(metadata.getRotation());

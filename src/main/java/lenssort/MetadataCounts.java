@@ -7,11 +7,11 @@ import java.util.List;
 @JsonAutoDetect
 public class MetadataCounts {
 
-    private List<MetadataCount<Float>> apertureCounts;
+    private List<MetadataCount<String>> apertureCounts;
     private List<MetadataCount<String>> cameraMakeCounts;
     private List<MetadataCount<String>> cameraModelCounts;
     private List<MetadataCount<String>> exposureTimeCounts;
-    private List<MetadataCount<Float>> focalLengthCounts;
+    private List<MetadataCount<String>> focalLengthCounts;
     private List<MetadataCount<Integer>> isoSpeedCounts;
     private List<MetadataCount<String>> lensCounts;
 
@@ -19,11 +19,11 @@ public class MetadataCounts {
 
     }
 
-    public List<MetadataCount<Float>> getApertureCounts() {
+    public List<MetadataCount<String>> getApertureCounts() {
         return apertureCounts;
     }
 
-    public void setApertureCounts(List<MetadataCount<Float>> apertureCounts) {
+    public void setApertureCounts(List<MetadataCount<String>> apertureCounts) {
         this.apertureCounts = apertureCounts;
     }
 
@@ -51,11 +51,11 @@ public class MetadataCounts {
         this.exposureTimeCounts = exposureTimeCounts;
     }
 
-    public List<MetadataCount<Float>> getFocalLengthCounts() {
+    public List<MetadataCount<String>> getFocalLengthCounts() {
         return focalLengthCounts;
     }
 
-    public void setFocalLengthCounts(List<MetadataCount<Float>> focalLengthCounts) {
+    public void setFocalLengthCounts(List<MetadataCount<String>> focalLengthCounts) {
         this.focalLengthCounts = focalLengthCounts;
     }
 

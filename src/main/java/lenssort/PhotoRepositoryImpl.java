@@ -29,22 +29,17 @@ public class PhotoRepositoryImpl implements PhotoRepositoryCustom {
     }
     private static final Map<String,Function<List,String>> FIELD_TO_STRING_JOINER = Maps.newHashMap();
     static{
-        FIELD_TO_STRING_JOINER.put("aperture", PhotoRepositoryImpl::commaSeperatedValues);
+        FIELD_TO_STRING_JOINER.put("aperture", PhotoRepositoryImpl::commaSeperatedDelimitedValues);
         FIELD_TO_STRING_JOINER.put("camera_make", PhotoRepositoryImpl::commaSeperatedDelimitedValues);
         FIELD_TO_STRING_JOINER.put("camera_model", PhotoRepositoryImpl::commaSeperatedDelimitedValues);
         FIELD_TO_STRING_JOINER.put("exposure_time", PhotoRepositoryImpl::commaSeperatedDelimitedValues);
-        FIELD_TO_STRING_JOINER.put("focal_length", PhotoRepositoryImpl::commaSeperatedValues);
+        FIELD_TO_STRING_JOINER.put("focal_length", PhotoRepositoryImpl::commaSeperatedDelimitedValues);
         FIELD_TO_STRING_JOINER.put("iso_speed", PhotoRepositoryImpl::commaSeperatedValues);
         FIELD_TO_STRING_JOINER.put("lens", PhotoRepositoryImpl::commaSeperatedDelimitedValues);
     }
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
-
-    private List<MetadataCount<Float>> queryCountsForFloatField(String field, String filterCountClause){
-        return this.jdbcTemplate.query(String.format(COUNT_QUERY,field,filterCountClause,field),
-                (ResultSet rs, int rowNum) -> new MetadataCount(rs.getFloat(1),rs.getInt(2),rs.getInt(3)));
-    }
 
     private List<MetadataCount<Integer>> queryCountsForIntField(String field, String filterCountClause){
         return this.jdbcTemplate.query(String.format(COUNT_QUERY,field,filterCountClause,field),
@@ -57,11 +52,11 @@ public class PhotoRepositoryImpl implements PhotoRepositoryCustom {
     }
 
     @Override
-    public List<MetadataCount<Float>> getApertureCounts(FilterRequest filterRequest){
+    public List<MetadataCount<String>> getApertureCounts(FilterRequest filterRequest){
         StringBuilder clause = new StringBuilder("TRUE ");
         String field = "aperture";
         appendInClauses(clause, filterRequest, field);
-        return queryCountsForFloatField(field, clause.toString());
+        return queryCountsForStringField(field, clause.toString());
     }
 
     @Override
@@ -89,11 +84,11 @@ public class PhotoRepositoryImpl implements PhotoRepositoryCustom {
     }
 
     @Override
-    public List<MetadataCount<Float>> getFocalLengthCounts(FilterRequest filterRequest) {
+    public List<MetadataCount<String>> getFocalLengthCounts(FilterRequest filterRequest) {
         StringBuilder clause = new StringBuilder("TRUE ");
         String field = "focal_length";
         appendInClauses(clause, filterRequest, field);
-        return queryCountsForFloatField(field, clause.toString());
+        return queryCountsForStringField(field, clause.toString());
     }
 
     @Override
