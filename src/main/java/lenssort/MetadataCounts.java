@@ -2,78 +2,78 @@ package lenssort;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import javafx.util.Pair;
+import org.jgroups.util.Triple;
 
 import java.util.List;
 
 @JsonAutoDetect
 public class MetadataCounts {
 
-    private List<Pair<Float, Integer>> apertureCounts;
-    private List<Pair<String, Integer>> cameraMakeCounts;
-    private List<Pair<String, Integer>> cameraModelCounts;
-    private List<Pair<Float, Integer>> exposureTimeCounts;
-    private List<Pair<Float, Integer>> focalLengthCounts;
-    private List<Pair<Integer, Integer>> isoSpeedCounts;
-    private List<Pair<String, Integer>> lensCounts;
+    private List<MetaDataCount<Float>> apertureCounts;
+    private List<MetaDataCount<String>> cameraMakeCounts;
+    private List<MetaDataCount<String>> cameraModelCounts;
+    private List<MetaDataCount<Float>> exposureTimeCounts;
+    private List<MetaDataCount<Float>> focalLengthCounts;
+    private List<MetaDataCount<Integer>> isoSpeedCounts;
+    private List<MetaDataCount<String>> lensCounts;
 
     public MetadataCounts(){
 
     }
 
-    public List<Pair<Float, Integer>> getApertureCounts() {
+    public List<MetaDataCount<Float>> getApertureCounts() {
         return apertureCounts;
     }
 
-    public void setApertureCounts(List<Pair<Float, Integer>> apertureCounts) {
+    public void setApertureCounts(List<MetaDataCount<Float>> apertureCounts) {
         this.apertureCounts = apertureCounts;
     }
 
-    public List<Pair<String, Integer>> getCameraMakeCounts() {
+    public List<MetaDataCount<String>> getCameraMakeCounts() {
         return cameraMakeCounts;
     }
 
-    public void setCameraMakeCounts(List<Pair<String, Integer>> cameraMakeCounts) {
+    public void setCameraMakeCounts(List<MetaDataCount<String>> cameraMakeCounts) {
         this.cameraMakeCounts = cameraMakeCounts;
     }
 
-    public List<Pair<String, Integer>> getCameraModelCounts() {
+    public List<MetaDataCount<String>> getCameraModelCounts() {
         return cameraModelCounts;
     }
 
-    public void setCameraModelCounts(List<Pair<String, Integer>> cameraModelCounts) {
+    public void setCameraModelCounts(List<MetaDataCount<String>> cameraModelCounts) {
         this.cameraModelCounts = cameraModelCounts;
     }
 
-    public List<Pair<Float, Integer>> getExposureTimeCounts() {
+    public List<MetaDataCount<Float>> getExposureTimeCounts() {
         return exposureTimeCounts;
     }
 
-    public void setExposureTimeCounts(List<Pair<Float, Integer>> exposureTimeCounts) {
+    public void setExposureTimeCounts(List<MetaDataCount<Float>> exposureTimeCounts) {
         this.exposureTimeCounts = exposureTimeCounts;
     }
 
-    public List<Pair<Float, Integer>> getFocalLengthCounts() {
+    public List<MetaDataCount<Float>> getFocalLengthCounts() {
         return focalLengthCounts;
     }
 
-    public void setFocalLengthCounts(List<Pair<Float, Integer>> focalLengthCounts) {
+    public void setFocalLengthCounts(List<MetaDataCount<Float>> focalLengthCounts) {
         this.focalLengthCounts = focalLengthCounts;
     }
 
-    public List<Pair<Integer, Integer>> getIsoSpeedCounts() {
+    public List<MetaDataCount<Integer>> getIsoSpeedCounts() {
         return isoSpeedCounts;
     }
 
-    public void setIsoSpeedCounts(List<Pair<Integer, Integer>> isoSpeedCounts) {
+    public void setIsoSpeedCounts(List<MetaDataCount<Integer>> isoSpeedCounts) {
         this.isoSpeedCounts = isoSpeedCounts;
     }
 
-    public List<Pair<String, Integer>> getLensCounts() {
+    public List<MetaDataCount<String>> getLensCounts() {
         return lensCounts;
     }
 
-    public void setLensCounts(List<Pair<String, Integer>> lensCounts) {
+    public void setLensCounts(List<MetaDataCount<String>> lensCounts) {
         this.lensCounts = lensCounts;
     }
-
 }

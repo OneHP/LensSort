@@ -6,12 +6,12 @@ import java.util.List;
 
 public interface PhotoRepositoryCustom {
 
-    List<Pair<Float,Integer>> getApertureCounts();
-    List<Pair<String,Integer>> getCameraMakeCounts();
-    List<Pair<String,Integer>> getCameraModelCounts();
-    List<Pair<Float,Integer>> getExposureTimeCounts();
-    List<Pair<Float,Integer>> getFocalLengthCounts();
-    List<Pair<Integer,Integer>> getIsoSpeedCounts();
-    List<Pair<String,Integer>> getLensCounts();
+    List<MetaDataCount<Float>> getApertureCounts();
+    List<MetaDataCount<String>> getCameraMakeCounts();
+    List<MetaDataCount<String>> getCameraModelCounts();
+    List<MetaDataCount<Float>> getExposureTimeCounts();
+    List<MetaDataCount<Float>> getFocalLengthCounts();
+    List<MetaDataCount<Integer>> getIsoSpeedCounts();
+    List<MetaDataCount<String>> getLensCounts();
 
 }

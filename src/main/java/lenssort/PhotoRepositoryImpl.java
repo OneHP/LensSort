@@ -17,53 +17,53 @@ public class PhotoRepositoryImpl implements PhotoRepositoryCustom {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    private List<Pair<Float,Integer>> queryCountsForFloatField(String field){
+    private List<MetaDataCount<Float>> queryCountsForFloatField(String field){
         return this.jdbcTemplate.query(String.format(COUNT_QUERY,field,field,field),
-                (ResultSet rs, int rowNum) -> new Pair<>(rs.getFloat(1),rs.getInt(2)));
+                (ResultSet rs, int rowNum) -> new MetaDataCount(rs.getFloat(1),rs.getInt(2),0));
     }
 
-    private List<Pair<Integer,Integer>> queryCountsForIntField(String field){
+    private List<MetaDataCount<Integer>> queryCountsForIntField(String field){
         return this.jdbcTemplate.query(String.format(COUNT_QUERY,field,field,field),
-                (ResultSet rs, int rowNum) -> new Pair<>(rs.getInt(1),rs.getInt(2)));
+                (ResultSet rs, int rowNum) -> new MetaDataCount(rs.getInt(1),rs.getInt(2),0));
     }
 
-    private List<Pair<String,Integer>> queryCountsForStringField(String field){
+    private List<MetaDataCount<String>> queryCountsForStringField(String field){
         return this.jdbcTemplate.query(String.format(COUNT_QUERY,field,field,field),
-                (ResultSet rs, int rowNum) -> new Pair<>(rs.getString(1),rs.getInt(2)));
+                (ResultSet rs, int rowNum) -> new MetaDataCount(rs.getString(1),rs.getInt(2),0));
     }
 
     @Override
-    public List<Pair<Float, Integer>> getApertureCounts(){
+    public List<MetaDataCount<Float>> getApertureCounts(){
         return queryCountsForFloatField("aperture");
     }
 
     @Override
-    public List<Pair<String, Integer>> getCameraMakeCounts() {
+    public List<MetaDataCount<String>> getCameraMakeCounts() {
         return queryCountsForStringField("camera_make");
     }
 
     @Override
-    public List<Pair<String, Integer>> getCameraModelCounts() {
+    public List<MetaDataCount<String>> getCameraModelCounts() {
         return queryCountsForStringField("camera_model");
     }
 
     @Override
-    public List<Pair<Float, Integer>> getExposureTimeCounts() {
+    public List<MetaDataCount<Float>> getExposureTimeCounts() {
         return queryCountsForFloatField("exposure_time");
     }
 
     @Override
-    public List<Pair<Float, Integer>> getFocalLengthCounts() {
+    public List<MetaDataCount<Float>> getFocalLengthCounts() {
         return queryCountsForFloatField("focal_length");
     }
 
     @Override
-    public List<Pair<Integer, Integer>> getIsoSpeedCounts() {
+    public List<MetaDataCount<Integer>> getIsoSpeedCounts() {
         return queryCountsForIntField("iso_speed");
     }
 
     @Override
-    public List<Pair<String, Integer>> getLensCounts() {
+    public List<MetaDataCount<String>> getLensCounts() {
         return queryCountsForStringField("lens");
     }
 
