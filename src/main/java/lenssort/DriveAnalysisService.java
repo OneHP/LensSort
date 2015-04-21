@@ -15,16 +15,16 @@ public class DriveAnalysisService {
     @Autowired
     private PhotoRepository photoRepository;
 
-    public MetadataCounts getMetaDataCounts(){
+    public MetadataCounts getMetaDataCounts(FilterRequest filterRequest){
 
         MetadataCounts metadataCounts = new MetadataCounts();
-        metadataCounts.setApertureCounts(photoRepository.getApertureCounts());
-        metadataCounts.setCameraMakeCounts(photoRepository.getCameraMakeCounts());
-        metadataCounts.setCameraModelCounts(photoRepository.getCameraModelCounts());
-        metadataCounts.setExposureTimeCounts(photoRepository.getExposureTimeCounts());
-        metadataCounts.setFocalLengthCounts(photoRepository.getFocalLengthCounts());
-        metadataCounts.setIsoSpeedCounts(photoRepository.getIsoSpeedCounts());
-        metadataCounts.setLensCounts(photoRepository.getLensCounts());
+        metadataCounts.setApertureCounts(photoRepository.getApertureCounts(filterRequest));
+        metadataCounts.setCameraMakeCounts(photoRepository.getCameraMakeCounts(filterRequest));
+        metadataCounts.setCameraModelCounts(photoRepository.getCameraModelCounts(filterRequest));
+        metadataCounts.setExposureTimeCounts(photoRepository.getExposureTimeCounts(filterRequest));
+        metadataCounts.setFocalLengthCounts(photoRepository.getFocalLengthCounts(filterRequest));
+        metadataCounts.setIsoSpeedCounts(photoRepository.getIsoSpeedCounts(filterRequest));
+        metadataCounts.setLensCounts(photoRepository.getLensCounts(filterRequest));
 
         return metadataCounts;
     }

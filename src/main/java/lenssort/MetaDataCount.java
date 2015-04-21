@@ -3,17 +3,17 @@ package lenssort;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
 @JsonAutoDetect
-public class MetaDataCount<T> {
+public class MetadataCount<T> {
 
     private T value;
     private int count;
     private int filteredCount;
 
-    public MetaDataCount(){
+    public MetadataCount(){
 
     }
 
-    public MetaDataCount(T value, int count, int filteredCount) {
+    public MetadataCount(T value, int count, int filteredCount) {
         this.value = value;
         this.count = count;
         this.filteredCount = filteredCount;

@@ -7,11 +7,12 @@ angular.module('controllers')
             isoSpeed:[],exposureTime:[]};
 
         $scope.refreshMetadataCounts = function(){
-            DriveAnalysisService.getMetadataCounts();
+            DriveAnalysisService.getMetadataCounts($scope.filterModel);
             DriveAnalysisService.getFilteredPhotos($scope.filterModel);
         }
 
         $scope.$watch('filterModel',function(newValue,oldValue){
+            DriveAnalysisService.getMetadataCounts(newValue);
             DriveAnalysisService.getFilteredPhotos(newValue);
         },true);
 

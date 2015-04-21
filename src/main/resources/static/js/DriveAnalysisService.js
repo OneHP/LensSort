@@ -8,8 +8,8 @@ angular.module('services')
     .factory('DriveAnalysisService',['$http','DriveAnalysisModel',function($http,DriveAnalysisModel){
         var service = {};
 
-        service.getMetadataCounts = function(){
-            $http.get('/metadata-counts')
+        service.getMetadataCounts = function(filterRequest){
+            $http.post('/metadata-counts',filterRequest)
                 .success(function(data, status, headers, config){
                     DriveAnalysisModel.metadataCounts = data;
                 })

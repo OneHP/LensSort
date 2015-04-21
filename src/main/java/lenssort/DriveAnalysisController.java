@@ -16,8 +16,8 @@ public class DriveAnalysisController {
     private DriveAnalysisService driveAnalysisService;
 
     @RequestMapping("/metadata-counts")
-    public MetadataCounts getMetaDataCounts(){
-        return this.driveAnalysisService.getMetaDataCounts();
+    public MetadataCounts getMetaDataCounts(@RequestBody FilterRequest filterRequest){
+        return this.driveAnalysisService.getMetaDataCounts(filterRequest);
     }
 
     @RequestMapping("/filtered-photos")
