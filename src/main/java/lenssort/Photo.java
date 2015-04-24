@@ -2,14 +2,16 @@ package lenssort;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.google.api.services.drive.model.File;
+import org.apache.commons.lang.StringUtils;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 @JsonAutoDetect
 @Entity(name="photo")
-public class Photo {
+public class Photo implements Serializable{
 
     @Id
     @GeneratedValue
@@ -27,7 +29,7 @@ public class Photo {
     private String lens;
     private int rotation;
 
-    protected Photo(){
+    public Photo(){
 
     }
 
@@ -129,15 +131,31 @@ public class Photo {
 
         final File.ImageMediaMetadata metadata = file.getImageMediaMetadata();
 
-        photo.setAperture(metadata.getAperture().toString());
-        photo.setCameraMake(metadata.getCameraMake());
-        photo.setCameraModel(metadata.getCameraModel());
-        photo.setExposureTime("1/" + Math.round(1.0f/metadata.getExposureTime()));
-        photo.setFocalLength(metadata.getFocalLength().toString());
-        photo.setIsoSpeed(metadata.getIsoSpeed());
-        photo.setLens(metadata.getLens());
-        photo.setRotation(metadata.getRotation());
+        photo.setAperture(parseFloatField(metadata.getAperture()));
+        photo.setCameraMake(parseStringField(metadata.getCameraMake()));
+        photo.setCameraModel(parseStringField(metadata.getCameraModel()));
+        photo.setExposureTime(parseExposureTime(metadata.getExposureTime()));
+        photo.setFocalLength(parseFloatField(metadata.getFocalLength()));
+        photo.setIsoSpeed(parseIntegerField(metadata.getIsoSpeed()));
+        photo.setLens(parseStringField(metadata.getLens()));
+        photo.setRotation(parseIntegerField(metadata.getRotation()));
 
         return photo;
+    }
+
+    private static String parseExposureTime(Float exposure){
+        return null == exposure ? "Undefined" : ("1/" + Math.round(1.0f/exposure));
+    }
+
+    private static String parseFloatField(Float value){
+        return null == value ? "Undefined" : Float.toString(value);
+    }
+
+    private static String parseStringField(String value){
+        return StringUtils.isEmpty(value) ? "Undefined" : value;
+    }
+
+    private static int parseIntegerField(Integer value){
+        return null == value ? 0 : value;
     }
 }

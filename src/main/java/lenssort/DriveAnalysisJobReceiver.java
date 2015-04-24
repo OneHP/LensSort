@@ -10,7 +10,10 @@ import com.google.api.services.drive.model.File;
 import com.google.api.services.drive.model.FileList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.annotation.JmsListener;
+import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Component;
+
+import javax.jms.Session;
 
 @Component
 public class DriveAnalysisJobReceiver {
@@ -19,7 +22,7 @@ public class DriveAnalysisJobReceiver {
     private DataStore<StoredCredential> credentialDataStore;
 
     @Autowired
-    private PhotoRepository photoRepository;
+    private JmsTemplate jmsTemplate;
 
     @JmsListener(destination = Constants.DRIVE_ANALYSIS_TRIGGER_QUEUE)
     public void receive(String message) throws Exception{
@@ -32,7 +35,7 @@ public class DriveAnalysisJobReceiver {
 
         FileList fileList = drive.files().list().setQ("mimeType = 'image/jpeg' and trashed = false").setMaxResults(200).execute();
 
-        fileList.getItems().forEach((File file) -> photoRepository.save(Photo.fromFile(file)));
+        fileList.getItems().forEach((File file) -> jmsTemplate.convertAndSend(Constants.SAVE_PHOTO_QUEUE,Photo.fromFile(file)));
 
     }
 }
