@@ -2,6 +2,7 @@ angular.module('controllers')
     .controller('LoginCallbackController',['$scope','DriveAnalysisService','DriveAnalysisModel',
     function($scope,DriveAnalysisService,DriveAnalysisModel){
 
+        $scope.pageSize = 500;
         $scope.driveAnalysisModel = DriveAnalysisModel;
         $scope.filterModel = {cameraMake:[],cameraModel:[],lens:[],aperture:[],focalLength:[],
             isoSpeed:[],exposureTime:[]};
